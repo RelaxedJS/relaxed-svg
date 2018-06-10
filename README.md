@@ -1,16 +1,10 @@
 # relaxed-svg
 
-This ReLaXed plugin provides utilities to work with SVG: SVG optimization (to
-reduce the size and complexity of your SVGs) and SVG *animation*, which enable
-to display only certain elements of a SVG, making it possible to do progressive
-slides in presentations.
+This ReLaXed plugin provides utilities to work with SVG:
 
-## Installation
-
-Install ``relaxed-svg`` on your machine with
-
-``.o.svg``
-
+- SVG optimization (to reduce the size and complexity of your SVGs)
+- SVG *animation*, which enable to display only certain elements of a SVG,
+  making it possible to do progressive slides in presentations.
 
 
 ## Usage
@@ -25,7 +19,7 @@ plugins:
 ```
 
 **Parameters**
-- ``jpeg-quality (default: 85):`` Compression quality the SVG optimizer should
+- **``jpeg-quality``** (default: 85) Compression quality the SVG optimizer should
   use when converting PNGs to JPEG. Set to 100 for no compression.
 
 ## SVG optimization
