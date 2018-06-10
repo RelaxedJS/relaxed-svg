@@ -1,0 +1,11 @@
+center
+  for step in [1, 2, 3, 4]
+    .container
+      +stepSVG(step, './test.svg')
+
+style.
+  .container svg {
+    display: block;
+    height: 200px;
+    margin-top: 1cm;
+  }

@@ -1,0 +1,24 @@
+{
+  "name": "relaxed-svg",
+  "version": "0.1.0",
+  "description": "SVG plugin for ReLaXed",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Zulko",
+  "homepage": "https://github.com/RelaxedJS/relaxed-svg",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.2.3",
+    "filesize": "^3.6.1",
+    "jimp": "^0.2.28",
+    "svgo": "^1.0.5"
+  },
+  "devDependencies": {
+    "diff": "^3.5.0",
+    "mocha": "^5.2.0",
+    "pdf-image": "^2.0.0",
+    "pixel-diff": "^1.0.1"
+  }
+}
