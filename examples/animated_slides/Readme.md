@@ -1,6 +1,6 @@
-# Example of animated slides.
+# Progressive slideshow example.
 
-This README explains how to create animated slides from a single SVG using ReLaXed and the ``relaxed-svg`` plugin. The procedure is as follows:
+Here we explain how to create animated slides from a single SVG using ReLaXed and the ``relaxed-svg`` plugin. The procedure is as follows:
 
 - Group the SVG elements which should appear together.
 - Add a ``steps`` attribute to each SVG group, indicating at which steps it should appear.
