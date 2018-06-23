@@ -33,6 +33,29 @@ to ``.o.svg``, e.g. ``myschema.o.svg``. Every time the file changes, an
 optimized version ``myschema_optimized.svg`` is created. Use this file in your
 templates.
 
-## SVG animations
+## "Animated slides" with SVG
 
-(to be written)
+When writing a slideshow, you may want some graphic elements to appear progressively, so you can introduce your audience to different components, step by step.
+
+For instance your might want to turn this complete slide:
+
+<p align='center'>
+  <img width="400px" src= "https://github.com/RelaxedJS/relaxed-svg/raw/master/examples/animated_slides/full_slide.png" />
+</p>
+
+Into an series of progressive slides:
+
+<p align='center'>
+  <img  width="400px" src= "https://github.com/RelaxedJS/relaxed-svg/raw/master/examples/animated_slides/animated_slides.gif" />
+</p>
+
+In most slideshow systems, the only way to do so is to generate a series of images, one for each slide. This comes with the inconvenient that, if you want to change an element that is common to all slides, you must regenerate all of them
+
+The ``relaxed-svg`` plugin provides a ``stepSVG`` plugin that makes it , from a single SVG, to create such progressive series of slides where different components can appear or disappear as you wish. With this system, any changes to the SVG file get instantly reflected in all the involved slides.
+
+See [this page](https://github.com/RelaxedJS/relaxed-svg/tree/master/examples/animated_slides) for an example and tutorial on making animated slides with ``relaxed-svg``.
+
+See also these examples, which make extensive use of progressive SVGs (these PDF slideshows are best viewed in presentation mode):
+
+- [A presentation on software for DNA assembly](https://github.com/Edinburgh-Genome-Foundry/egf-shared-documents/blob/master/slideshows/eastbio_dundee_2018/sample.pdf)
+- [A presentation on cloud biology](https://github.com/Edinburgh-Genome-Foundry/egf-shared-documents/blob/master/slideshows/bbsrc_skills_school_2018/sample.pdf)
