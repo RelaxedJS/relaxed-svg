@@ -43,7 +43,7 @@ For instance your might want to turn this complete slide:
   <img width="400px" src= "https://github.com/RelaxedJS/relaxed-svg/raw/master/examples/animated_slides/full_slide.png" />
 </p>
 
-Into an series of progressive slides:
+Into a series of progressive slides:
 
 <p align='center'>
   <img  width="400px" src= "https://github.com/RelaxedJS/relaxed-svg/raw/master/examples/animated_slides/animated_slides.gif" />
@@ -51,7 +51,17 @@ Into an series of progressive slides:
 
 In most slideshow systems, the only way to do so is to generate a series of images, one for each slide. This comes with the inconvenient that, if you want to change an element that is common to all slides, you must regenerate all of them
 
-The ``relaxed-svg`` plugin provides a ``stepSVG`` plugin that makes it , from a single SVG, to create such progressive series of slides where different components can appear or disappear as you wish. With this system, any changes to the SVG file get instantly reflected in all the involved slides.
+The ``relaxed-svg`` plugin provides a ``stepSVG`` plugin that makes it easy, from a single SVG, to create such progressive series of slides where different components can appear or disappear as you wish.
+
+The Pug code will simply look like this:
+
+```pug
+each step in [0, 1, 2, 3, 4]
+  .slide
+    +stepSVG(step, 'earth-cutaway.svg')
+```
+
+With this system, any changes to the SVG file get instantly reflected in all the involved slides.
 
 See [this page](https://github.com/RelaxedJS/relaxed-svg/tree/master/examples/animated_slides) for an example and tutorial on making animated slides with ``relaxed-svg``.
 
