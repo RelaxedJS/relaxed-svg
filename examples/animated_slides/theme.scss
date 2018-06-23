@@ -1,0 +1,32 @@
+$page_width: 8in;
+$page_height: 6in;
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  size: $page_width $page_height;
+  -relaxed-page-width: $page_width;
+  -relaxed-page-height: $page_height;
+  margin: 0;
+}
+
+.slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: $page_width;
+  height: $page_height;
+  overflow: hidden;
+  background: url(background.svg);
+  background-size: cover;
+  justify-content: center;
+  text-align: center;
+}
+
+svg {
+  width: 80% !important;
+  height: auto !important;
+}
