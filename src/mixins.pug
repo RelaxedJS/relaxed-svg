@@ -10,7 +10,7 @@ mixin stepSVG(step, svgPath)
     //- included into ``steps``.
     
     -
-      svgPath = path.join(basedir, svgPath)
+      svgPath = path.join(__root__, svgPath)
       if (!svgPluginGlobals.stepSVGmemo[svgPath]) {
         var text = fs.readFileSync(svgPath, 'utf8')
         svgPluginGlobals.stepSVGmemo[svgPath] = cheerio.load(text, {xmlMode: true})
