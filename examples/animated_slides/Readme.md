@@ -90,4 +90,6 @@ each layer_and_steps in layers_and_steps
 ```
 
 In each slide, any group with a ``layer=`` attribute will be masked unless this
-attribute's value corresponds to the current ``current_layer`` value.
+attribute's value corresponds to the current ``current_layer`` value, at which
+case it will be shown. Layers to which you didn't give a ``layer`` attribute
+will always be shown.
