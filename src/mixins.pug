@@ -3,7 +3,7 @@
     stepSVGmemo: {}
   }
 
-mixin stepSVG(step, svgPath)
+mixin stepSVG(step, svgPath, layer = null)
     //- Allows to import progressive (=animated) SVGs into slideshow.
     //- If a SVG has elements with a ``steps`` attributes, then
     //- ``+stepSVG(4, 'my.svg')`` with only display this element if 4 is
@@ -17,6 +17,18 @@ mixin stepSVG(step, svgPath)
       }
       var parsed = svgPluginGlobals.stepSVGmemo[svgPath]
       var replacements = []
+      if (layer) {
+        parsed(`*[layer=${layer}]`).css('display', 'true').attr('display', 'true')
+        //- parsed(`*[layer=${layer}]`)
+        parsed('*[layer]').each(function (i, c) {
+          if (c.attribs.layer !== layer) {
+            var replacement = cheerio.load('<g></g>', {xmlMode: true}).root()
+            var element = parsed(this)
+            replacements.push([replacement, element])
+            element.replaceWith(replacement)
+          }
+        })
+      }
       parsed('*[steps]').each(function (i, c) {
         var steps = c.attribs.steps
         if (steps.indexOf('--') > -1) {

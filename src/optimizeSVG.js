@@ -16,6 +16,9 @@ module.exports = async function (svgPath, jpegQuality) {
     }
     var buffer = Buffer.from(match.slice(pngIndicator.length), 'base64')
     var img = await jimp.read(buffer)
+    if (img.hasAlpha()) {
+      return match
+    }
     var newData = await new Promise(resolve => {
       img.quality(jpegQuality).getBase64(jimp.MIME_JPEG, function (err, data) {
         let final = data.length < match.length ? data + '"' : match
@@ -34,6 +37,9 @@ module.exports = async function (svgPath, jpegQuality) {
       },
       {
         moveGroupAttrsToElems: false
+      },
+      {
+        removeHiddenElems: false
       },
       {
         collapseGroups: false

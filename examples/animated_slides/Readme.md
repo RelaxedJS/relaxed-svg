@@ -63,3 +63,31 @@ It produces [the following PDF](), which progressively displays the different SV
 <p align='center'>
   <img  width="400px" src= "https://github.com/RelaxedJS/relaxed-svg/raw/master/examples/animated_slides/animated_slides.gif" />
 </p>
+
+## Bonus: using layers in animated SVGs
+
+SVGs meant to be animated can become crowded, with elements superimposed, at
+which case you may want to use the layer feature that some software like inscape
+offer. Layers are simply SVG groups (``<g>...</g>``) with an editor-specific
+attribute indicating the layer name. If you add a ``layer=mylayer1`` attribute to
+the layer groups you want to show or mask, you can create layer-after-layer
+progressive slides in Relaxed as follows:
+
+```pug
+-
+  var layers_and_steps = [
+    ['mylayer1', [1, 2, 3]],
+    ['mylayer2', [1, 2, 3, 4, 5, 6]]
+  ]
+
+each layer_and_steps in layers_and_steps
+  - var [current_layer, steps] = layer_and_steps
+  each step in steps
+    .slide
+      .header This is a singl progressive slide with many layers
+      .content.vcenter
+        +stepSVG(step, __dir + "my_layered_graphic.svg", current_layer)
+```
+
+In each slide, any group with a ``layer=`` attribute will be masked unless this
+attribute's value corresponds to the current ``current_layer`` value.
