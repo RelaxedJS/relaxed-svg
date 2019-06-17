@@ -1,6 +1,6 @@
 {
   "name": "relaxed-svg",
-  "version": "0.1.3",
+  "version": "0.2",
   "description": "SVG plugin for ReLaXed",
   "main": "src/index.js",
   "scripts": {
