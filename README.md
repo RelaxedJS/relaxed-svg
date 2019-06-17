@@ -69,3 +69,25 @@ See also these examples, which make extensive use of progressive SVGs (these PDF
 
 - [A presentation on software for DNA assembly](https://github.com/Edinburgh-Genome-Foundry/egf-shared-documents/blob/master/slideshows/eastbio_dundee_2018/sample.pdf)
 - [A presentation on cloud biology](https://github.com/Edinburgh-Genome-Foundry/egf-shared-documents/blob/master/slideshows/bbsrc_skills_school_2018/sample.pdf)
+
+## Using SVG layers
+
+Software like Inkscape allow to define "layers", which are simply SVG ``<g/>`` groups
+that can be masked and locked in the software. If a layer is masked it generally
+has a ``display: none`` attribute and won't be displayed in your ReLaXed PDF.
+
+**Important:** To be able to use layers, your svg layers should have a
+``layer`` attribute with value the name of the layer. This is not the case by
+default in Inkscape, you have to enter this attribute manually. A layer name
+cannot be ``all``, this word is reserved.
+
+**To hide all layers except one,** add the ``layer='layer_name'`` argument to
+``stepSVG``:
+
+```
+.slide
+    +stepSVG(step, 'car_schema.svg', layer='engine_details')
+```
+
+**To ensure all layers will be shown**, including the ones that are marked as
+"invisible" layers in inkscape, use ``layer='all'`` 
