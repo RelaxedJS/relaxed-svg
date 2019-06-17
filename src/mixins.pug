@@ -19,15 +19,18 @@ mixin stepSVG(step, svgPath, layer = null)
       var replacements = []
       if (layer) {
         parsed(`*[layer=${layer}]`).css('display', 'true').attr('display', 'true')
-        //- parsed(`*[layer=${layer}]`)
-        parsed('*[layer]').each(function (i, c) {
-          if (c.attribs.layer !== layer) {
-            var replacement = cheerio.load('<g></g>', {xmlMode: true}).root()
-            var element = parsed(this)
-            replacements.push([replacement, element])
-            element.replaceWith(replacement)
-          }
-        })
+        if (layer === 'all') {
+          parsed('*[layer]').css('display', 'true').attr('display', 'true')
+        } else {
+          parsed('*[layer]').each(function (i, c) {
+            if (c.attribs.layer !== layer) {
+              var replacement = cheerio.load('<g></g>', {xmlMode: true}).root()
+              var element = parsed(this)
+              replacements.push([replacement, element])
+              element.replaceWith(replacement)
+            }
+          })
+        }
       }
       parsed('*[steps]').each(function (i, c) {
         var steps = c.attribs.steps
